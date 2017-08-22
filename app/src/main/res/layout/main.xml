@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:keepScreenOn="true">
+
+  <com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview
+      android:id="@+id/preview"
+      android:layout_width="match_parent"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:layout_weight="90"
+      android:layout_height="0dp">
+
+    <com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay
+        android:id="@+id/faceOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+  </com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview>
+
+  <ImageView
+      android:visibility="gone"
+      android:id="@+id/capturedImage"
+      android:layout_weight="90"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      />
+
+  <Button
+      android:id="@+id/capturePhoto"
+      android:layout_marginTop="10dp"
+      android:layout_marginBottom="15dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:background="#1b9ba9"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="10"
+      android:enabled="false"
+      android:text="Capture Photo"/>
+
+</LinearLayout>
