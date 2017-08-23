@@ -34,6 +34,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -51,7 +52,7 @@ import java.io.IOException;
  * Activity for the face tracker app.  This app detects faces with the rear facing camera, and draws
  * overlay graphics to indicate the position, size, and ID of each face.
  */
-public final class FaceTrackerActivity extends AppCompatActivity implements CapturePhotoListener {
+public final class FaceTrackerActivity extends AppCompatActivity implements CapturePhotoListener, View.OnClickListener {
     private static final String TAG = "FaceTracker";
 
     private CameraSource mCameraSource = null;
@@ -59,6 +60,7 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
     private CameraSourcePreview mPreview;
     private GraphicOverlay mGraphicOverlay;
     private Button btnCapturePhoto;
+    private Button btnSavePhoto;
     private ImageView ivCaptureImage;
 
     private static final int RC_HANDLE_GMS = 9001;
@@ -83,6 +85,9 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);
         mGraphicOverlay = (GraphicOverlay) findViewById(R.id.faceOverlay);
         btnCapturePhoto = (Button) findViewById(R.id.capturePhoto);
+        btnCapturePhoto.setOnClickListener(this);
+        btnSavePhoto = (Button) findViewById(R.id.savePhoto);
+        btnSavePhoto.setOnClickListener(this);
         ivCaptureImage = (ImageView) findViewById(R.id.capturedImage);
         capturePhotoListener = this;
         // Check for the camera permission before accessing the camera.  If the
@@ -273,6 +278,19 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.capturePhoto:
+                onCapture();
+                break;
+            case R.id.savePhoto:
+                Toast.makeText(this, "Captured photo is saved! ", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+    }
+
     //==============================================================================================
     // Graphic Face Tracker
     //==============================================================================================
@@ -315,7 +333,7 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
         @Override
         public void onUpdate(FaceDetector.Detections<Face> detectionResults, Face face) {
             mOverlay.add(mFaceGraphic);
-            mFaceGraphic.updateFace(face,btnCapturePhoto,capturePhotoListener);
+            mFaceGraphic.updateFace(face,capturePhotoListener);
         }
 
         /**
@@ -340,7 +358,12 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
 
     @Override
     public void onCapture() {
-        dispatchTakePictureIntent();
+        //dispatchTakePictureIntent();
+        ivCaptureImage.setVisibility(View.GONE);
+        mPreview.setVisibility(View.VISIBLE);
+        btnCapturePhoto.setEnabled(false);
+        btnSavePhoto.setEnabled(false);
+        startCameraSource();
     }
 
     @Override
@@ -368,5 +391,8 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
                 ivCaptureImage.setImageBitmap(bmp);
             }
         });
+
+        btnCapturePhoto.setEnabled(true);
+        btnSavePhoto.setEnabled(true);
     }
 }

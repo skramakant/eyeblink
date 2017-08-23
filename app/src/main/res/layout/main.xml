@@ -14,7 +14,7 @@
       android:layout_width="match_parent"
       android:layout_marginLeft="10dp"
       android:layout_marginRight="10dp"
-      android:layout_weight="90"
+      android:layout_weight="95"
       android:layout_height="0dp">
 
     <com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay
@@ -27,24 +27,41 @@
   <ImageView
       android:visibility="gone"
       android:id="@+id/capturedImage"
-      android:layout_weight="90"
+      android:layout_weight="95"
       android:layout_marginLeft="10dp"
       android:layout_marginRight="10dp"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       />
 
-  <Button
-      android:id="@+id/capturePhoto"
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       android:layout_marginTop="10dp"
-      android:layout_marginBottom="15dp"
       android:layout_marginLeft="10dp"
       android:layout_marginRight="10dp"
-      android:background="#1b9ba9"
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-      android:layout_weight="10"
-      android:enabled="false"
-      android:text="Capture Photo"/>
+      android:layout_weight="5"
+      android:orientation="horizontal">
 
+    <Button
+        android:id="@+id/savePhoto"
+        android:background="#1b9ba9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+        android:enabled="false"
+        android:layout_marginRight="2dp"
+        android:text="Save Photo"/>
+
+    <Button
+        android:id="@+id/capturePhoto"
+        android:background="#1b9ba9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+        android:enabled="false"
+        android:layout_marginLeft="2dp"
+        android:text="ReTake"/>
+
+  </LinearLayout>
 </LinearLayout>

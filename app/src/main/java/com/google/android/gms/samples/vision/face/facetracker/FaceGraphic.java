@@ -40,7 +40,6 @@ class FaceGraphic extends GraphicOverlay.Graphic {
     private boolean EYE_BLINK_FLAG = false;
     private boolean CAPTURE_IMAGE_FLAG = false;
     private int EYE_BLINK_COUNTER = 0;
-    private Button btnCapturePhoto ;
     private CapturePhotoListener capturePhotoListener;
 
     private static final int COLOR_CHOICES[] = {
@@ -95,9 +94,8 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         postInvalidate();
     }
 
-    void updateFace(Face face, Button btnCapturePhoto,CapturePhotoListener capturePhotoListener) {
+    void updateFace(Face face,CapturePhotoListener capturePhotoListener) {
         mFace = face;
-        this.btnCapturePhoto = btnCapturePhoto;
         this.capturePhotoListener = capturePhotoListener;
         postInvalidate();
     }
@@ -121,8 +119,8 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         //canvas.drawText("right eye: " + String.format("%.2f", face.getIsRightEyeOpenProbability()), x + ID_X_OFFSET * 2, y + ID_Y_OFFSET * 2, mIdPaint);
         //canvas.drawText("left eye: " + String.format("%.2f", face.getIsLeftEyeOpenProbability()), x - ID_X_OFFSET*2, y - ID_Y_OFFSET*2, mIdPaint);
 
-        if(face.getIsLeftEyeOpenProbability() < 0.30 && LEFT_RYE_OPEN_PROVABILITY > 0.30
-        && face.getIsRightEyeOpenProbability()< 0.30 && RIGHT_RYE_OPEN_PROVABILITY > 0.30){
+        if((face.getIsLeftEyeOpenProbability() < 0.27 && LEFT_RYE_OPEN_PROVABILITY > 0.27)
+        || (face.getIsRightEyeOpenProbability()< 0.27 && RIGHT_RYE_OPEN_PROVABILITY > 0.27)){
             LEFT_RYE_OPEN_PROVABILITY = 0.10f;
             RIGHT_RYE_OPEN_PROVABILITY = 0.10f;
             EYE_BLINK_COUNTER++;
@@ -138,13 +136,6 @@ class FaceGraphic extends GraphicOverlay.Graphic {
                 capturePhotoListener.autoCapture();
                 CAPTURE_IMAGE_FLAG = true;
             }
-            btnCapturePhoto.setEnabled(true);
-            btnCapturePhoto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    capturePhotoListener.onCapture();
-                }
-            });
         }
 
         // Draws a bounding box around the face.
