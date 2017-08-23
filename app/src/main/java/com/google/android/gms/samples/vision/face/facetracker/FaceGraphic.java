@@ -39,7 +39,7 @@ class FaceGraphic extends GraphicOverlay.Graphic {
     private float RIGHT_RYE_OPEN_PROVABILITY = 0.10f;
     private boolean EYE_BLINK_FLAG = false;
     private boolean CAPTURE_IMAGE_FLAG = false;
-    private int EYE_BLINK_COUNTER = 0;
+    private static int EYE_BLINK_COUNTER = 0;
     private CapturePhotoListener capturePhotoListener;
 
     private static final int COLOR_CHOICES[] = {
@@ -119,8 +119,8 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         //canvas.drawText("right eye: " + String.format("%.2f", face.getIsRightEyeOpenProbability()), x + ID_X_OFFSET * 2, y + ID_Y_OFFSET * 2, mIdPaint);
         //canvas.drawText("left eye: " + String.format("%.2f", face.getIsLeftEyeOpenProbability()), x - ID_X_OFFSET*2, y - ID_Y_OFFSET*2, mIdPaint);
 
-        if((face.getIsLeftEyeOpenProbability() < 0.27 && LEFT_RYE_OPEN_PROVABILITY > 0.27)
-        || (face.getIsRightEyeOpenProbability()< 0.27 && RIGHT_RYE_OPEN_PROVABILITY > 0.27)){
+        if((face.getIsLeftEyeOpenProbability() < 0.28 && LEFT_RYE_OPEN_PROVABILITY > 0.28)
+        && (face.getIsRightEyeOpenProbability()< 0.28 && RIGHT_RYE_OPEN_PROVABILITY > 0.28)){
             LEFT_RYE_OPEN_PROVABILITY = 0.10f;
             RIGHT_RYE_OPEN_PROVABILITY = 0.10f;
             EYE_BLINK_COUNTER++;
@@ -133,8 +133,12 @@ class FaceGraphic extends GraphicOverlay.Graphic {
 
         if(EYE_BLINK_COUNTER >= 2){
             if(!CAPTURE_IMAGE_FLAG){
+                LEFT_RYE_OPEN_PROVABILITY = 0.10f;
+                RIGHT_RYE_OPEN_PROVABILITY = 0.10f;
+                EYE_BLINK_FLAG = false;
+                EYE_BLINK_COUNTER = 0;
                 capturePhotoListener.autoCapture();
-                CAPTURE_IMAGE_FLAG = true;
+                CAPTURE_IMAGE_FLAG = false;
             }
         }
 
