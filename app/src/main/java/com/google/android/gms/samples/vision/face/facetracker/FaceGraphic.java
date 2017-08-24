@@ -116,11 +116,11 @@ class FaceGraphic extends GraphicOverlay.Graphic {
         canvas.drawCircle(x, y, FACE_POSITION_RADIUS, mFacePositionPaint);
         //canvas.drawText("id: " + mFaceId, x + ID_X_OFFSET, y + ID_Y_OFFSET, mIdPaint);
         canvas.drawText("happiness: " + String.format("%.2f", face.getIsSmilingProbability()), x - ID_X_OFFSET, y - ID_Y_OFFSET, mIdPaint);
-        //canvas.drawText("right eye: " + String.format("%.2f", face.getIsRightEyeOpenProbability()), x + ID_X_OFFSET * 2, y + ID_Y_OFFSET * 2, mIdPaint);
-        //canvas.drawText("left eye: " + String.format("%.2f", face.getIsLeftEyeOpenProbability()), x - ID_X_OFFSET*2, y - ID_Y_OFFSET*2, mIdPaint);
+        canvas.drawText("right eye: " + String.format("%.2f", face.getIsRightEyeOpenProbability()), x + ID_X_OFFSET * 2, y + ID_Y_OFFSET * 2, mIdPaint);
+        canvas.drawText("left eye: " + String.format("%.2f", face.getIsLeftEyeOpenProbability()), x - ID_X_OFFSET*2, y - ID_Y_OFFSET*2, mIdPaint);
 
-        if((face.getIsLeftEyeOpenProbability() < 0.28 && LEFT_RYE_OPEN_PROVABILITY > 0.28)
-        && (face.getIsRightEyeOpenProbability()< 0.28 && RIGHT_RYE_OPEN_PROVABILITY > 0.28)){
+        if((face.getIsLeftEyeOpenProbability() < 0.38 && LEFT_RYE_OPEN_PROVABILITY > 0.38)
+        && (face.getIsRightEyeOpenProbability()< 0.38 && RIGHT_RYE_OPEN_PROVABILITY > 0.38)){
             LEFT_RYE_OPEN_PROVABILITY = 0.10f;
             RIGHT_RYE_OPEN_PROVABILITY = 0.10f;
             EYE_BLINK_COUNTER++;
