@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
@@ -38,7 +39,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.vision.CameraSource;
+
+import com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSource;
 import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.face.Face;
@@ -165,7 +167,8 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
         mCameraSource = new CameraSource.Builder(context, detector)
                 .setRequestedPreviewSize(640, 480)
                 .setFacing(CameraSource.CAMERA_FACING_BACK) //changed it CAMERA_FACING_BACK
-                .setRequestedFps(30.0f)
+                .setRequestedFps(24.0f)
+                .setFlashMode(true ? Camera.Parameters.FLASH_MODE_TORCH : null)
                 .build();
 
     }
@@ -178,7 +181,6 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
         super.onResume();
         startCameraSource();
     }
-
     /**
      * Stops the camera.
      */

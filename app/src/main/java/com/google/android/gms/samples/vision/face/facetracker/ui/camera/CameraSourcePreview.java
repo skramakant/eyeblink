@@ -19,6 +19,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.hardware.Camera;
 import android.support.v4.app.ActivityCompat;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -38,7 +39,7 @@ public class CameraSourcePreview extends ViewGroup {
     private SurfaceView mSurfaceView;
     private boolean mStartRequested;
     private boolean mSurfaceAvailable;
-    private CameraSource mCameraSource;
+    private com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSource mCameraSource;
 
     private GraphicOverlay mOverlay;
 
@@ -53,7 +54,7 @@ public class CameraSourcePreview extends ViewGroup {
         addView(mSurfaceView);
     }
 
-    public void start(CameraSource cameraSource) throws IOException {
+    public void start(com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSource cameraSource) throws IOException {
         if (cameraSource == null) {
             stop();
         }
@@ -66,7 +67,7 @@ public class CameraSourcePreview extends ViewGroup {
         }
     }
 
-    public void start(CameraSource cameraSource, GraphicOverlay overlay) throws IOException {
+    public void start(com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSource cameraSource, GraphicOverlay overlay) throws IOException {
         mOverlay = overlay;
         start(cameraSource);
     }
