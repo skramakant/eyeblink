@@ -352,6 +352,13 @@ public class CameraSource {
             }
             mCamera.startPreview();
 
+            mCamera.setPreviewCallback(new Camera.PreviewCallback() {
+                @Override
+                public void onPreviewFrame(byte[] data, Camera camera) {
+
+                }
+            });
+
             mProcessingThread = new Thread(mFrameProcessor);
             mFrameProcessor.setActive(true);
             mProcessingThread.start();

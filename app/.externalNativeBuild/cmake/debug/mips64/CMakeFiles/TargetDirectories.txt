@@ -1,0 +1,4 @@
+C:/Users/Axis_Inside/StudioProjects/eyeblink/app/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/native-lib.dir
+C:/Users/Axis_Inside/StudioProjects/eyeblink/app/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/spot-detection-lib.dir
+C:/Users/Axis_Inside/StudioProjects/eyeblink/app/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/edit_cache.dir
+C:/Users/Axis_Inside/StudioProjects/eyeblink/app/.externalNativeBuild/cmake/debug/mips64/CMakeFiles/rebuild_cache.dir

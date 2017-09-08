@@ -48,6 +48,10 @@ import com.google.android.gms.vision.face.FaceDetector;
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.CameraSourcePreview;
 import com.google.android.gms.samples.vision.face.facetracker.ui.camera.GraphicOverlay;
 
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+
 import java.io.IOException;
 
 /**
@@ -56,6 +60,16 @@ import java.io.IOException;
  */
 public final class FaceTrackerActivity extends AppCompatActivity implements CapturePhotoListener, View.OnClickListener {
     private static final String TAG = "FaceTracker";
+
+    static {
+        System.loadLibrary("native-lib");
+        System.loadLibrary("spot-detection-lib");
+        if(!OpenCVLoader.initDebug()){
+            Log.v(TAG, "OpenCV not loaded");
+        } else {
+            Log.v(TAG, "OpenCV loaded");
+        }
+    }
 
     private CameraSource mCameraSource = null;
 
@@ -168,8 +182,10 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
                 .setRequestedPreviewSize(640, 480)
                 .setFacing(CameraSource.CAMERA_FACING_BACK) //changed it CAMERA_FACING_BACK
                 .setRequestedFps(24.0f)
-                .setFlashMode(true ? Camera.Parameters.FLASH_MODE_TORCH : null)
-                .build();
+
+                .build();//.setFlashMode(true ? Camera.Parameters.FLASH_MODE_TORCH : null)
+
+
 
     }
 
@@ -390,11 +406,26 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
                 //mCameraSource.release();
                 ivCaptureImage.setVisibility(View.VISIBLE);
                 Bitmap bmp= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-                ivCaptureImage.setImageBitmap(bmp);
+
+                Bitmap bmp32 = bmp.copy(Bitmap.Config.ARGB_8888, true);
+                Mat mat = new Mat();
+                Utils.bitmapToMat(bmp32, mat);
+
+                int result = checkForSpoofing(mat.getNativeObjAddr(),mat.getNativeObjAddr());
+                if(result ==1){
+                    Utils.matToBitmap(mat,bmp32);
+                    //ivCaptureImage.setImageResource(R.drawable.icon);
+                    ivCaptureImage.setImageBitmap(bmp32);
+                }else{
+                    ivCaptureImage.setImageBitmap(bmp32);
+                }
+
             }
         });
 
         btnCapturePhoto.setEnabled(true);
         btnSavePhoto.setEnabled(true);
     }
+
+    public native int checkForSpoofing(long mRgbA,long mRgbG);
 }

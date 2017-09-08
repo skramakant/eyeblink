@@ -1,0 +1,25 @@
+# ninja log v5
+0	218	0	CMakeFiles/spot-detection-lib.dir/src/main/cpp/spot-detection-lib.cpp.o	947dc4a2f255852a
+219	412	0	../../../../build/intermediates/cmake/debug/obj/x86/libspot-detection-lib.so	479e5721ff286157
+4	1426	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1427	1702	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+4	156	0	CMakeFiles/spot-detection-lib.dir/src/main/cpp/spot-detection-lib.cpp.o	947dc4a2f255852a
+156	258	0	../../../../build/intermediates/cmake/debug/obj/x86/libspot-detection-lib.so	479e5721ff286157
+4	1020	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1020	1267	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+5	1472	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1472	1857	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+3	1098	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1098	1355	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+2	1115	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1115	1357	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+2	1188	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1188	1476	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+2	1269	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1269	1556	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+6	1201	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1201	1454	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
+2	126	0	CMakeFiles/spot-detection-lib.dir/src/main/cpp/spot-detection-lib.cpp.o	947dc4a2f255852a
+126	232	0	../../../../build/intermediates/cmake/debug/obj/x86/libspot-detection-lib.so	479e5721ff286157
+5	1017	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	c87716b24c57e1df
+1017	1226	0	../../../../build/intermediates/cmake/debug/obj/x86/libnative-lib.so	335e2356ce585660
