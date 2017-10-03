@@ -31,7 +31,7 @@ Java_com_google_android_gms_samples_vision_face_facetracker_FaceTrackerActivity_
     string str = strs.str();
     putText(mReal, str, Point2f(40,220), FONT_HERSHEY_SIMPLEX, 1,  Scalar(255));
     __android_log_print(ANDROID_LOG_VERBOSE,"EyeValue", "ramakant float = %f",value);
-    if(value < 35555.0){//350000.0
+    if(value < 31000.0){//350000.0
         putText(mReal, "Spoofing", Point2f(40,120), FONT_HERSHEY_SIMPLEX, 1,  Scalar(255));
         return 1;
     }

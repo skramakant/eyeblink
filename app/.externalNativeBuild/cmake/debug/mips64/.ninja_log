@@ -23,3 +23,5 @@
 116	481	0	../../../../build/intermediates/cmake/debug/obj/mips64/libspot-detection-lib.so	95e0462e1772f5d8
 3	984	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bab297c77452eabe
 984	1859	0	../../../../build/intermediates/cmake/debug/obj/mips64/libnative-lib.so	3220315e8a8b974c
+3	1161	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	bab297c77452eabe
+1162	1947	0	../../../../build/intermediates/cmake/debug/obj/mips64/libnative-lib.so	3220315e8a8b974c

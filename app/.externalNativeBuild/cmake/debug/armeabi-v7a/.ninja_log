@@ -23,3 +23,5 @@
 201	355	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libspot-detection-lib.so	205b18a37f172957
 4	1310	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	efc8e83aa3821c43
 1310	1583	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	263e9e9ac857b8ee
+5	1348	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	efc8e83aa3821c43
+1348	1629	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libnative-lib.so	263e9e9ac857b8ee

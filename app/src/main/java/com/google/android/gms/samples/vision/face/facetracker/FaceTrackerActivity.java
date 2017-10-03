@@ -412,13 +412,13 @@ public final class FaceTrackerActivity extends AppCompatActivity implements Capt
                 Utils.bitmapToMat(bmp32, mat);
 
                 int result = checkForSpoofing(mat.getNativeObjAddr(),mat.getNativeObjAddr());
-                if(result ==1){
-                    Utils.matToBitmap(mat,bmp32);
+                Utils.matToBitmap(mat,bmp32);
+                //if(result ==1){
                     //ivCaptureImage.setImageResource(R.drawable.icon);
                     ivCaptureImage.setImageBitmap(bmp32);
-                }else{
-                    ivCaptureImage.setImageBitmap(bmp32);
-                }
+                //}else{
+                    //ivCaptureImage.setImageBitmap(bmp32);
+                //}
 
             }
         });

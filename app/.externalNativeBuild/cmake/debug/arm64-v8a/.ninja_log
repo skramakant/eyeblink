@@ -23,3 +23,5 @@
 133	454	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libspot-detection-lib.so	5d39eb784af24c22
 4	1130	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	a586451e32b98332
 1131	2121	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	ebd68453f26173b2
+2	1294	0	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	a586451e32b98332
+1294	1983	0	../../../../build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	ebd68453f26173b2
